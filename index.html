@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <title>GainLab</title>
+</head>
+<body>
+    <header>
+        <h1><i class="fa-brands fa-nutritionix"></i>GainLab</h1>
+        <h2>Your Nutrition Intake Calculator</h2>
+    </header>
+
+    <!-- Disclaimer Section -->
+    <div class="disclaimer">
+        <p class="warning"><i class="fas fa-exclamation-triangle"></i> IMPORTANT: Please consult with a healthcare professional before making any significant changes to your diet or following the recommendations provided by this calculator.</p>
+    </div>
+
+    <!-- Info Section -->
+    <section class="info-section">
+        <h3>About GainLab Calculator</h3>
+        <p>Our calculator helps you determine optimal nutrient intake based on your personal characteristics and goals:</p>
+        <ul>
+            <li><strong>Protein:</strong> Essential for muscle growth, recovery, and maintenance of body tissues.</li>
+            <li><strong>Calories:</strong> Fundamental for energy, weight management, and achieving your fitness goals.</li>
+            <li><strong>Creatine:</strong> Supports muscle power, strength, and high-intensity exercise performance.</li>
+        </ul>
+    </section>
+
+    <!-- Calculator Form -->
+    <form id="nutrition-calculator">
+        <!-- Units Selection -->
+        <div class="units-selection">
+            <h3>Select Your Preferred Units</h3>
+            <div class="button-group">
+                <button type="button" class="unit-btn active" data-unit="metric">Metric (kg/cm)</button>
+                <button type="button" class="unit-btn" data-unit="imperial">Imperial (lbs/ft)</button>
+            </div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="personal-info">
+            <div class="form-group">
+                <label for="age">Age:</label>
+                <input type="number" id="age" required min="15" max="100">
+            </div>
+
+            <div class="form-group">
+                <label>Sex:</label>
+                <div class="button-group">
+                    <button type="button" class="gender-btn active" data-gender="male">Male</button>
+                    <button type="button" class="gender-btn" data-gender="female">Female</button>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="weight">Weight:</label>
+                <input type="number" id="weight" required step="0.1">
+                <span class="unit-label">kg/lbs</span>
+            </div>
+
+            <div class="form-group">
+                <label for="height">Height:</label>
+                <input type="number" id="height" required step="0.1">
+                <span class="unit-label">cm/ft</span>
+            </div>
+
+            <div class="form-group">
+                <label for="bodyfat">Body Fat Percentage:</label>
+                <input type="number" id="bodyfat" required min="3" max="70" step="0.1">
+                <span class="unit-label">%</span>
+            </div>
+
+            <div class="form-group">
+                <label for="activity">Activity Level:</label>
+                <select id="activity" required>
+                    <option value="">Select activity level</option>
+                    <option value="sedentary">Sedentary (Little to no exercise)</option>
+                    <option value="light">Light Exercise (1-3 days/week)</option>
+                    <option value="moderate">Moderate Exercise (3-5 days/week)</option>
+                    <option value="intense">Intense Exercise (6-7 days/week)</option>
+                    <option value="athlete">Athlete (2x training/day)</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="exercise-hours">Exercise Hours per Week:</label>
+                <input type="number" id="exercise-hours" required min="0" max="56">
+            </div>
+
+            <div class="form-group">
+                <label for="exercise-type">Exercise Type:</label>
+                <select id="exercise-type" required>
+                    <option value="">Select exercise type</option>
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Strength Training</option>
+                    <option value="mixed">Mixed</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="goal">Goal:</label>
+                <select id="goal" required>
+                    <option value="">Select your goal</option>
+                    <option value="loss">Weight Loss</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="gain">Muscle Gain</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Body Fat Reference Images -->
+        <div class="bodyfat-reference">
+            <h3>Body Fat Percentage Reference</h3>
+            <div class="image-container">
+                <img src="" alt="Body fat percentage reference" class="bodyfat-img">
+            </div>
+        </div>
+
+        <button type="submit" class="calculate-btn">Calculate</button>
+    </form>
+
+    <!-- Results Section -->
+    <section id="results" class="hidden">
+        <h3>Your Personalized Nutrition Plan</h3>
+        <div class="results-grid">
+            <div class="result-card">
+                <h4>Daily Calories</h4>
+                <p id="calories-result">-</p>
+            </div>
+            <div class="result-card">
+                <h4>Protein Intake</h4>
+                <p id="protein-result">-</p>
+            </div>
+            <div class="result-card">
+                <h4>Creatine Intake</h4>
+                <p id="creatine-result">-</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nutrition Sources -->
+    <section class="nutrition-sources">
+        <h3>Best Nutrition Sources</h3>
+        
+        <div class="source-category">
+            <h4>Protein Sources</h4>
+            <ul>
+                <li>Chicken Breast</li>
+                <li>Eggs</li>
+                <li>Greek Yogurt</li>
+                <li>Whey Protein</li>
+                <li>Fish (Salmon, Tuna)</li>
+            </ul>
+        </div>
+
+        <div class="source-category">
+            <h4>Quality Calorie Sources</h4>
+            <ul>
+                <li>Brown Rice</li>
+                <li>Sweet Potatoes</li>
+                <li>Oatmeal</li>
+                <li>Nuts and Seeds</li>
+                <li>Avocados</li>
+            </ul>
+        </div>
+
+        <div class="source-category">
+            <h4>Creatine Sources</h4>
+            <ul>
+                <li>Creatine Monohydrate Supplements</li>
+                <li>Red Meat</li>
+                <li>Fish</li>
+                <li>Pork</li>
+            </ul>
+        </div>
+    </section>
+</body>
+</html>
